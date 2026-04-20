@@ -1,7 +1,13 @@
 import requests
 import re
 
-url = input("input url target : ")
+url = input("input url target : ").strip().lower()
+
+#ngecek kondisi apakah awalannya ad https atau http ga
+
+if not url.startswith(("https://", "http://")):
+    print("https or http not detected, adding automation")
+    url = "https://" + url
 
 def EmailScrap(target_url):
     try:
